@@ -60,7 +60,6 @@ const About: React.FC = () => {
 
             {/* Quick facts */}
             <div className="grid grid-cols-2 gap-6">
-              <div className="flex items-center gap-3 p-4 bg-white/60 backdrop-blur-sm rounded-lg border border-white/50">
               <div className="flex items-center gap-3 p-4 bg-black/30 backdrop-blur-sm rounded-lg border border-purple-500/30">
                 <MapPin className="w-5 h-5 text-purple-400" />
                 <div>
@@ -131,5 +130,3 @@ const About: React.FC = () => {
 };
 
 export default About;
-  )
-}
