@@ -45,7 +45,7 @@ function App() {
   const pageVariants = {
     initial: { 
       opacity: 0,
-      x: currentPage > 0 ? 100 : 0,
+      x: 50,
       scale: 0.95
     },
     in: { 
@@ -55,27 +55,8 @@ function App() {
     },
     out: { 
       opacity: 0,
-      x: currentPage > 0 ? -100 : 0,
+      x: -50,
       scale: 0.95
-    }
-  };
-
-  // Special flip animation for cover to hero transition
-  const flipVariants = {
-    initial: { 
-      opacity: 0,
-      rotateY: -90,
-      transformOrigin: "left center"
-    },
-    in: { 
-      opacity: 1,
-      rotateY: 0,
-      transformOrigin: "left center"
-    },
-    out: { 
-      opacity: 0,
-      rotateY: 90,
-      transformOrigin: "right center"
     }
   };
 
@@ -85,18 +66,7 @@ function App() {
     duration: 0.6
   };
 
-  const flipTransition = {
-    type: "tween",
-    ease: "anticipate",
-    duration: 1.2
-  };
-
   const CurrentPageComponent = pages[currentPage].component;
-  
-  // Use flip animation only when transitioning from cover (0) to hero (1)
-  const shouldUseFlip = currentPage === 1;
-  const variants = shouldUseFlip ? flipVariants : pageVariants;
-  const transition = shouldUseFlip ? flipTransition : pageTransition;
 
   return (
     <div className={`min-h-screen ${darkMode ? 'dark' : ''}`}>
@@ -112,21 +82,21 @@ function App() {
 
       {/* Animated Background for non-cover pages */}
       {currentPage !== 0 && (
-        <div className="fixed inset-0 bg-black text-white">
+        <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
           <AnimatedBackground />
         </div>
       )}
 
       {/* Page Content */}
-      <div className="relative z-10" style={{ perspective: "1000px" }}>
+      <div className="relative z-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentPage}
             initial="initial"
             animate="in"
             exit="out"
-            variants={variants}
-            transition={transition}
+            variants={pageVariants}
+            transition={pageTransition}
             className="min-h-screen"
           >
             {currentPage === 0 ? (
@@ -148,7 +118,6 @@ function App() {
           </motion.div>
         </AnimatePresence>
       </div>
-
     </div>
   );
 }

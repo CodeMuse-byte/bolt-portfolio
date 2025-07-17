@@ -86,20 +86,20 @@ const CoverPage: React.FC<CoverPageProps> = ({ onStartStory, onConnect }) => {
   if (!mounted) return null;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 text-white relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full blur-2xl opacity-30 animate-pulse" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-indigo-500/30 to-purple-500/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-emerald-400/30 to-blue-400/30 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '4s' }}></div>
       </div>
 
       {/* Grid Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
           backgroundImage: `
-            radial-gradient(circle at 25% 25%, #4F46E5 2px, transparent 2px),
-            radial-gradient(circle at 75% 75%, #8B5CF6 1px, transparent 1px)
+            radial-gradient(circle at 25% 25%, rgba(79,70,229,0.3) 2px, transparent 2px),
+            radial-gradient(circle at 75% 75%, rgba(139,92,246,0.3) 1px, transparent 1px)
           `,
           backgroundSize: '50px 50px, 30px 30px'
         }} />
@@ -119,7 +119,7 @@ const CoverPage: React.FC<CoverPageProps> = ({ onStartStory, onConnect }) => {
             animate="float"
             transition={{ delay: i * 0.5 }}
           >
-            <Code className="w-6 h-6 text-indigo-400 opacity-30" />
+            <Code className="w-6 h-6 text-indigo-400/40" />
           </motion.div>
         ))}
       </div>
